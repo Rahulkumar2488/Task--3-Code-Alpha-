@@ -1,0 +1,268 @@
+/* ********************************************************************************	
+    Copyright (c) 2023 CodePen | Maycon Luiz (https://codepen.io/mycnlz/pen/XKbEgo)	
+   ********************************************************************************	
+    code has been slightly customized/modified for the purpose of this exercise  		
+   ********************************************************************************	
+*/
+
+/*--------------------
+General Style
+---------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    background: #6d819c;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.left-side {
+    float: left;
+}
+
+.right-side {
+    float: right;
+}
+
+/*--------------------
+Background Elements
+---------------------*/
+
+.ui {
+    width: 80%;
+    height: 96%;
+    position: relative;
+    background-color: #e4e7ec;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 30px 48px rgba(50, 54, 70, 0.24);
+}
+
+a.btn-support {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 8%;
+    bottom: 6%;
+    color: #c9d6de;
+    font-size: 2em;
+    text-align: center;
+    line-height: 50px;
+    background-color: #263959;
+    border-radius: 25px;
+}
+
+/*--------------------
+Message Widget
+---------------------*/
+
+.widget {
+    width: calc(92% - 100px);
+    min-width: 400px;
+    height: calc(92% - 60px);
+    min-height: 400px;
+    position: absolute;
+    right: 6%;
+    bottom: calc(6% + 70px);
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 30px 48px rgba(50, 54, 70, 0.24);
+}
+
+.widget:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 7%;
+    bottom: -30px;
+    border: 15px solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.widget-header {
+    width: 100%;
+    height: 30px;
+    background-color: #fff;
+    font-size: 0.8em;
+    line-height: 34px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #7f9eb2;
+    box-shadow: 0 1px 0 rgba(50, 54, 70, 0.08);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.widget-conversation {
+    height: calc(100% - 100px);
+    padding: 12px 24px 12px 20px;
+    overflow-y: scroll;
+    position: relative;
+    background-color: #f4f5f9;
+}
+
+ul {
+    list-style: none;
+}
+
+li.message-left,
+li.message-right {
+    position: relative;
+    margin-left: -40px;
+}
+
+.message-avatar {
+    width: 40px;
+}
+
+li.message-left>.message-avatar {
+    float: left;
+}
+
+li.message-right>.message-avatar {
+    float: right;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 3.1em;
+    line-height: 40px;
+    text-align: center;
+    overflow: hidden;
+}
+
+li.message-left .avatar {
+    float: left;
+    color: #9bc6b6;
+    background-color: #55967e;
+}
+
+li.message-right .avatar {
+    float: right;
+    color: #b3becc;
+    background-color: #6d819c;
+}
+
+.name {
+    font-size: 0.6em;
+    color: #6d819c;
+    text-align: center;
+}
+
+.message-text {
+    max-width: calc(100% - 60px);
+    padding: 12px;
+    border-radius: 4px;
+    background-color: #e7e9f2;
+    line-height: 1.1;
+    color: #263959;
+}
+
+li.message-left>.message-text {
+    text-align: left;
+    left: 16px;
+    margin-left: 60px;
+}
+
+li.message-right>.message-text {
+    text-align: right;
+    right: 16px;
+}
+
+.message-text:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 10px;
+    border: 8px solid;
+}
+
+li.message-left>.message-text:before {
+    left: 44px;
+    border-color: transparent #e7e9f2 transparent transparent;
+}
+
+li.message-right>.message-text:before {
+    right: 45px;
+    border-color: transparent transparent transparent #e7e9f2;
+}
+
+.message-hour {
+    max-width: calc(100% - 60px);
+    padding: 2px;
+    color: #a8b0cf;
+    font-size: 0.625em;
+    margin-bottom: 12px;
+}
+
+.message-hour>span {
+    color: #8CD790;
+}
+
+li.message-left>.message-hour {
+    text-align: left;
+    margin-left: 60px;
+}
+
+li.message-right>.message-hour {
+    text-align: right;
+}
+
+.widget-form {
+    height: 60px;
+    padding: 12px 20px;
+    position: relative;
+    background-color: #fff;
+    border-top: 1px solid rgba(50, 54, 70, 0.08);
+}
+
+textarea {
+    width: calc(100% - 60px);
+    padding: 3px;
+    background-color: #f4f5f9;
+    border: 1px solid #f4f5f9;
+    border-radius: 6px;
+    outline: none;
+}
+
+button {
+    color: #8CD790;
+    background-color: transparent;
+    border: 1px solid #8CD790;
+    border-radius: 6px;
+    width: 50px;
+    float: right;
+    margin-top: 8px;
+    outline: none;
+}
+
+button:hover {
+    color: #fff;
+    background-color: #8CD790;
+    border: 1px solid #8CD790;
+}
+
+.message-avatar,
+.message-text,
+.message-hour,
+button {
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}

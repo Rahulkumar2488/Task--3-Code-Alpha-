@@ -1,0 +1,69 @@
+<!-- ********************************************************************************	  -->
+<!--  Copyright (c) 2023 CodePen | Maycon Luiz (https://codepen.io/mycnlz/pen/XKbEgo)	  -->
+<!--  ********************************************************************************	-->
+<!--  code has been slightly customized/modified for the purpose of this exercise  		  -->
+<!--  ********************************************************************************	-->
+<html>
+
+<head>
+    <title>TCSS 460: ChatGPT from openAI Example</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="script.js"></script> <!-- the custom JavaScript file that we will use to connect to ChatGPT -->
+</head>
+
+<body>
+    <!-- Creating a simple widget to contain the converation-->
+    <div class='ui'>
+        <div class='widget'>
+            <div class='widget-header'>TCSS 460: ChatGPT Example</div>
+
+            <!-- Start of the conversation -->
+            <div class='widget-conversation'>
+                <ul id='conversation'>
+                    <!-- This list item contains a single message. A message contains an avatar, name, message content and time. -->
+                    <!-- In order to get started, we have a sample default fixed HTML message that will appear when you load the page -->
+                    <!-- However, when a user ensters a message (see below), this ul element will be appended with a list item for that message -->
+                    <!-- By default, the ChatGPT assumes a "left" message alignment whereas end user (i.e., you) assumes a message aligned to the right -->
+                    <li class='message-left'>
+                        <div class='message-avatar'>
+                            <div class='avatar ion-ios-person'></div>
+                            <div class='name'>ChatGPT</div>
+                        </div>
+                        <div class='message-text'>How may I help you today?</div>
+                        <div class='message-hour'>08:00 <span class='ion-android-done-all'></span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- This form allows enduser (you in this case) to enter a question or input in the textbox and clicking Send button -->
+            <!-- This message will then be processed by the script.js (JavaScript) to connect to ChatGPT, process response and append the -->
+            <!-- list items in the conversation above with the response. -->
+            <div class='widget-form'>
+                <textarea id='message'></textarea>
+                <button>Send</button>
+            </div>
+
+        </div>
+        <a href='#' class='btn-support ion-ios-chatboxes'></a>
+
+        <!-- SPEECH INTEGRATION - START-->
+        <!-- leave this section for now as we will use to integrate speech into the form -->
+        <div class="mt-4">
+            <button class="btn btn-primary ion-android-microphone" id="start">Talk</button>
+            <br><br><br><br>
+            <button class="btn btn-secondary ion-andriod-microphone-off" id="stop">Stop</button>
+            <p id="status" class="lead mt-3 text-light" style="display: none">Listening ...</p>
+        </div>
+        <!-- SPEECH INTEGRATION - END-->
+    </div>
+</body>
+<!--SPEECH INTEGRATION FILE - START -->
+<script src="speech.js"></script>
+<!--SPEECH INTEGRATION FILE - END -->
+
+</html>
